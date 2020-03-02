@@ -30,11 +30,13 @@ class DriversRepository extends ServiceEntityRepository
     public function findDriver($value)
     {
         return $this->createQueryBuilder('d')
-            ->join(Team::class, 'name','d.team_id = t.id')
+            ->select('d.Surname','d.Name','d.Number')
+            ->join(Team::class, 't','d.team_id = t.id','')
             ->andWhere('d.Name LIKE :val')
             ->orWhere('d.Surname LIKE :val')
             ->setParameter('val', $value."%")
             ->orderBy('d.Surname', 'ASC')
+            ->distinct()
             ->getQuery()
             ->getResult()
         ;
