@@ -21,7 +21,7 @@ class Team
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Name;
+    private $NameTeam;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -48,14 +48,14 @@ class Team
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getNameTeam(): ?string
     {
-        return $this->Name;
+        return $this->NameTeam;
     }
 
-    public function setName(string $Name): self
+    public function setNameTeam(string $NameTeam): self
     {
-        $this->Name = $Name;
+        $this->NameTeam = $NameTeam;
 
         return $this;
     }

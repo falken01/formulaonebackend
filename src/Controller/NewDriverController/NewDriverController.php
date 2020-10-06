@@ -41,7 +41,7 @@ class NewDriverController extends AbstractController
         $violations = $val->validate(
             $uploadedFile,
             new File([
-                'maxSize' => '1k'
+                'maxSize' => '99k'
                 
             ])
         );
@@ -50,7 +50,6 @@ class NewDriverController extends AbstractController
         {
             echo "Nieodpowiedni plik";
         }
-        dd($newFilename);
 
         ($uploadedFile->move(
             $destination,
